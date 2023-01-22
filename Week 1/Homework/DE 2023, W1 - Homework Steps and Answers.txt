@@ -1,0 +1,79 @@
+DE Zoomcamp commands for homework:
+
+Question1: 
+
+> docker --help
+> docker build --help
+
+A: --iidfile string  
+
+=====================================================
+
+Question2:
+
+> winpty docker run -it entrypoint=bash python:3.9
+
+>>> pip list
+
+A: 3
+
+=====================================================
+Setup for Question 3: 
+
+Setup docker-compose.yaml that sets up postgres and pgadmin images/containers. 
+Run docker-compose up command. 
+
+Put together data-ingest.py script. 
+Run data-ingest.py script (This takes a while). 
+
+Now log onto pgadmin, and you're ready to query the data
+
+=====================================================
+Question3:
+
+Query: 
+select count(*) from green_taxi_trips
+where cast(lpep_pickup_datetime as date) = cast('2019-01-15' as date)
+	and cast(lpep_dropoff_datetime as date) = cast('2019-01-15' as date)
+
+A: 20530
+
+=====================================================
+Question4:
+
+Query:
+
+select cast(lpep_pickup_datetime as date), max(trip_distance)
+from green_taxi_trips
+group by 1
+order by 2 desc
+
+A: 2019-01-15
+
+=====================================================
+Question5:
+
+Query:
+select passenger_count, count(*) 
+from green_taxi_trips
+where cast(lpep_pickup_datetime as date) = cast('2019-01-01' as date)
+group by 1
+order by 1
+
+A: 2: 1282 ; 3: 254
+
+=====================================================
+Question6:
+
+Query: 
+select t2."Zone", t3."Zone", max(tip_amount)
+from		public.green_taxi_trips t1
+left join 	public.taxi_zone  		t2	on t1."PULocationID" = t2."LocationID"
+left join 	public.taxi_zone  		t3	on t1."DOLocationID" = t3."LocationID"
+where t2."Zone" = 'Astoria'
+group by 1,2
+order by 3 desc
+
+A:
+Long Island City/Queens Plaza
+
