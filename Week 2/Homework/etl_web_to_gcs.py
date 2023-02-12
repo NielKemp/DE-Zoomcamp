@@ -60,7 +60,7 @@ def main_flow(months:list[int] = [1,2],year:int = 2019, color = 'yellow'):
         etl_web_to_gcs(year, month, color)
 
 if __name__ == "__main__":
-    color = "green"
-    year = 2019
-    months = [4]
+    color = "yellow"
+    year = 2020
+    months = [1,2,3,4,5,6,7,8,9,10,11,12]
     main_flow(months, year, color)
