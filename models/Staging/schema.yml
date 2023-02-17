@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+    - name: staging
+      #For bigquery:
+      #database: taxi-rides-ny-339813
+
+      # For postgres:
+      database: round-honor-373909
+
+      schema: dezoomcamp
+
+      # loaded_at_field: record_loaded_at
+      tables:
+        - name: rides_green
+        - name: rides_yellow
+         # freshness:
+           # error_after: {count: 6, period: hour}
