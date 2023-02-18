@@ -33,6 +33,6 @@ select
     cast(congestion_surcharge as numeric) as congestion_surcharge
 from {{ source('staging','rides_green') }}
 where vendorid is not null
-{% if var('is_test_run', default = true) %}
-limit 100
+{% if var('is_test_run', default=true) %}
+  limit 100
 {% endif %}
