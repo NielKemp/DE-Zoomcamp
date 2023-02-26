@@ -2,3 +2,10 @@
 target/
 dbt_packages/
 logs/
+Week%205/
+'Week 5'/data
+'Week 5'/fhvhv
+'Week 5'/zones
+'Week 5'/fhvhv_tripdate_2021-06.csv
+'Week 5'/fhvhv_tripdate_2021-01.parquet
+'Week 5'/taxi_zone_lookup.csv
